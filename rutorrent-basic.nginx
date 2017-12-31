@@ -1,0 +1,26 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+	root /var/www/rutorrent;
+	index index.php index.html index.htm;
+	server_name localhost;
+	client_max_body_size 2M;
+
+	location / {
+		try_files $uri $uri/ =404;
+    auth_basic off;
+	}
+
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+
+	location /RPC2 {
+    include scgi_params;
+	  scgi_pass 0.0.0.0:5555;
+	}
+
+}

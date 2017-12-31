@@ -1,0 +1,68 @@
+# LOGGING #
+log.open_file = "rtorrent", /rtorrent/rtorrent.log
+log.add_output = "debug", "rtorrent"
+
+# RPC #
+scgi_port=0.0.0.0:5555
+encoding_list = UTF-8
+
+# TRACKERS #
+trackers.use_udp.set = yes
+trackers.numwant.set = -1
+trackers.use_udp.set = yes
+use_udp_trackers = yes
+
+# PEERS #
+max_uploads = 2048
+min_peers = 1
+max_peers = 2048
+min_peers_seed = 1
+max_peers_seed = 2048
+check_hash = yes
+
+# DIRECTORIES #
+directory = /incomplete
+session = /session
+
+# MEMORY #
+pieces.memory.max.set = 4096M
+pieces.hash.on_completion.set = yes
+pieces.preload.type.set = 1
+pieces.preload.min_size.set = 262144
+pieces.preload.min_rate = 5120
+pieces.sync.always_safe.set = no
+pieces.sync.timeout.set = 600
+pieces.sync.timeout_safe.set = 900
+
+# FILES #
+system.file.max_size.set = -1
+system.file.split_size.set = -1
+system.file.split_suffix.set = .part
+
+# NETWORKING #
+port_range = 51102-51102
+port_random = yes
+upload_rate = 0
+download_rate = 0
+network.max_open_files.set = 4096
+network.max_open_sockets.set = 4096
+network.http.max_open.set = 1024
+network.send_buffer.size.set = 1M
+network.receive_buffer.size.set = 131072
+
+# BITTORRENT #
+dht_port = 51101
+peer_exchange = no
+encryption = allow_incoming,enable_retry,prefer_plaintext
+
+# SESSION #
+session.name.set =
+session.use_lock.set = yes
+session.on_completion.set = yes
+
+# METHODS #
+system.method.insert = d.get_finished_dir,simple,"cat=/complete/,$d.get_custom1="
+system.method.set_key = event.download.finished,move_complete,"d.set_directory=$d.get_finished_dir=;execute=mkdir,-p,$d.get_finished_dir=;execute=mv,-u,$d.get_base_path=,$d.get_finished_dir=;$d.stop=;$d.start="
+
+# SCHEDULE #
+schedule = watch_directory,5,5,load_start=/watch/*.torrent
