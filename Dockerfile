@@ -21,6 +21,8 @@ RUN mkdir -p /var/www && \
 
 ADD ./config.php /var/www/rutorrent/conf/
 
+# add rutorrent autotools config file with 5s interval
+ADD ./rutorrent.autotools.conf /var/www/rutorrent/plugins/autotools
 # add startup scripts and configs
 ADD startup-rtorrent.sh startup-nginx.sh startup-php.sh .rtorrent.rc /root/
 

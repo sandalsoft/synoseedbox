@@ -25,7 +25,7 @@ directory = /incomplete
 session = /session
 
 # MEMORY #
-pieces.memory.max.set = 4096M
+pieces.memory.max.set = 1024M
 pieces.hash.on_completion.set = yes
 pieces.preload.type.set = 1
 pieces.preload.min_size.set = 262144
