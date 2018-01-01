@@ -32,7 +32,7 @@ $ docker run -dt \
  -p 51102:51102 \
  -p 5555:5555 \
  -v ~/incomplete:/incomplete \
- -v ~/complete:/complete \
+ -v ~/data:/data \
  -v ~/watch:/watch \
  -v ~/session:/session \
  -v ~/rtorrent:/rtorrent \
@@ -46,7 +46,7 @@ Additional:
 Custom .rtorrent.rc
 
 * Downloads start in /incomplete
-* Completed downloads are moved to /complete/<rutorrent label>
+* Completed downloads are moved to /data/<rutorrent label>
 
 ---
 

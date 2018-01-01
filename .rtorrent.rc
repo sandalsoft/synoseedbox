@@ -61,7 +61,7 @@ session.use_lock.set = yes
 session.on_completion.set = yes
 
 # METHODS #
-system.method.insert = d.get_finished_dir,simple,"cat=/complete/,$d.get_custom1="
+system.method.insert = d.get_finished_dir,simple,"cat=/data/,$d.get_custom1="
 system.method.set_key = event.download.finished,move_complete,"d.set_directory=$d.get_finished_dir=;execute=mkdir,-p,$d.get_finished_dir=;execute=mv,-u,$d.get_base_path=,$d.get_finished_dir=;$d.stop=;$d.start="
 
 # SCHEDULE #

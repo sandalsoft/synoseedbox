@@ -35,7 +35,7 @@ EXPOSE 51102
 RUN mkdir -p /incomplete ; chown 1000:1000 /incomplete
 RUN mkdir -p /rutorrent ; chown 1000:1000 /rutorrent
 VOLUME /incomplete
-VOLUME /complete
+VOLUME /data
 VOLUME /watch
 VOLUME /session
 VOLUME /rtorrent
