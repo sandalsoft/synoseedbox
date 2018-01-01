@@ -30,7 +30,6 @@ ADD startup-rtorrent.sh startup-nginx.sh startup-php.sh .rtorrent.rc /root/
 ADD supervisord.conf /etc/supervisor/conf.d/
 
 EXPOSE 80
-EXPOSE 443
 EXPOSE 51101
 EXPOSE 51102
 
