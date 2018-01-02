@@ -16,7 +16,8 @@ set -e
 set -x
 
 # Use the cache or not
-#docker build $1 $2 -t "$TORRENT_IMAGE:latest" .
-docker build --no-cache $1 $2 -t "$TORRENT_IMAGE:latest" .
+docker build $1 $2 -t "$TORRENT_IMAGE:latest" .
+# docker build --no-cache $1 $2 -t "$TORRENT_IMAGE:latest" .
+
 docker save -o $BUILD_DIR/$IMAGE_FILE $TORRENT_IMAGE
 rsync --progress $BUILD_DIR/$IMAGE_FILE $HOSTED_DIR
