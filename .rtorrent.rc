@@ -21,7 +21,7 @@ max_peers_seed = 2048
 check_hash = yes
 
 # DIRECTORIES #
-directory = /incomplete
+directory = /in_progress
 session = /session
 
 # MEMORY #
@@ -42,8 +42,10 @@ system.file.split_suffix.set = .part
 # NETWORKING #
 port_range = 51102-51102
 port_random = yes
-upload_rate = 0
-download_rate = 0
+# Setup upload rate to  3,750kbps == 30mbps
+upload_rate = 3750
+# Set download rate to 93,750kbps == 750mbps
+download_rate = 93750
 network.max_open_files.set = 4096
 network.max_open_sockets.set = 4096
 network.http.max_open.set = 1024
@@ -53,7 +55,8 @@ network.receive_buffer.size.set = 131072
 # BITTORRENT #
 dht_port = 51101
 peer_exchange = no
-encryption = allow_incoming,enable_retry,prefer_plaintext
+#encryption = allow_incoming,enable_retry,prefer_plaintext
+encryption = allow_incoming,try_outgoing,enable_retry
 
 # SESSION #
 session.name.set =

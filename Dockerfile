@@ -34,9 +34,9 @@ EXPOSE 80
 EXPOSE 51101
 EXPOSE 51102
 
-RUN mkdir -p /incomplete ; chown 1000:1000 /incomplete
+RUN mkdir -p /in_progress ; chown 1000:1000 /in_progress
 RUN mkdir -p /rutorrent ; chown 1000:1000 /rutorrent
-VOLUME /incomplete
+VOLUME /in_progress
 VOLUME /data
 VOLUME /watch
 VOLUME /session

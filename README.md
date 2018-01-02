@@ -1,4 +1,11 @@
-# Fork of diameter/rtorrent-rutorrent with configurable volumes.
+# Fork of zszafran/rtorrent-rutorrent which is a fork of diameter/rtorrent-rutorrent with configurable volumes.
+
+Changes I made from zszafran/rtorrent-rutorrent:
+
+* Upgraded to ruTorrent v3.8
+* Changed compelted torrents directory from /complete to /data
+* Changed rutorrent Autotools watch interval from 5min to 3sec
+* Changed /incomplete directory to /in_progress
 
 Multiple processes inside the container managed by supervisord:
 
@@ -31,7 +38,7 @@ $ docker run -dt \
  -p 51101:51101/udp \
  -p 51102:51102 \
  -p 5555:5555 \
- -v ~/incomplete:/incomplete \
+ -v ~/in_progress:/in_progress \
  -v ~/data:/data \
  -v ~/watch:/watch \
  -v ~/session:/session \
@@ -45,9 +52,9 @@ Additional:
 
 Custom .rtorrent.rc
 
-* Downloads start in /incomplete
+* Downloads start in /in_progress
 * Completed downloads are moved to /data/<rutorrent label>
 
 ---
 
-Access web-interface: enter http://your_host_address:1111 in a browser
+Access web-interface: enter http://your_host_address:8080 in a browser

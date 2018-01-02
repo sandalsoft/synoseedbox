@@ -11,7 +11,7 @@ groupadd -g $RT_GID rtorrent
 useradd -u $RT_UID -g $RT_GID -d /home/rtorrent -m -s /bin/bash rtorrent
 
 # arrange dirs and configs
-mkdir -p /incomplete
+mkdir -p /in_progress
 mkdir -p /data
 mkdir -p /rtorrent
 mkdir -p /session

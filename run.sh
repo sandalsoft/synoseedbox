@@ -5,7 +5,7 @@ docker run -d \
   -p 51101:51101/udp \
   -p 51102:51102 \
   -p 5555:5555 \
-  -v ~/incomplete:/incomplete \
+  -v ~/in_progress:/in_progress \
   -v ~/data:/data \
   -v ~/watch:/watch \
   -v ~/session:/session \
